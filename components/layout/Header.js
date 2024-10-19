@@ -37,8 +37,8 @@ export default function Header({ color = false, ...props }) {
                   className="mt-5 w-[240px]"
                 />
               </div>
-              <div className=" tracking-wider mt-12">
-                <div className="flex justify-center">
+              <div className="   tracking-wider mt-12">
+                <div className="  flex justify-center">
                   <div
                     onClick={() => {
                       setPhoneMenuShow(!phoneMenuShow);
@@ -66,7 +66,7 @@ export default function Header({ color = false, ...props }) {
           <></>
         </div>
       ) : (
-        <div className="w-full bg-[#561515] bg-opacity-95 md:bg-transparent z-50 py-2 md:py-12 px-0 md:px-20 tracking-wider font-desc2">
+        <div className=" border w-full bg-[#561515]  bg-opacity-95 md:bg-transparent z-50 py-2 md:py-12 px-0 md:px-20 tracking-wider font-desc2">
           <Grid container className="items-center">
             <Grid
               item
