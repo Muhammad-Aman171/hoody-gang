@@ -1,6 +1,4 @@
-
-// this is landing page  responsive design  code
-
+// // this is landing page  responsive design  code
 
 import { Grid, Menu, MenuItem } from "@mui/material";
 import React, { useState } from "react";
@@ -22,10 +20,10 @@ export default function Header({ color = false, ...props }) {
   return (
     <>
       {phoneMenuShow == true ? (
-        <div className=" border fixed top-0 w-full font-desc2">
-          <div className="bg-[url('/images/main/mobileMenuBG.webp')] bg-no-repeat bg-cover h-screen w-full">
-            <div className="flex flex-row justify-center py-4">
-              <div className="fixed top-0 right-0 pr-4 py-4">
+        <div className="  fixed top-0 w-full font-desc2">
+          <div className="  bg-[url('/images/main/mobileMenuBG.webp')] bg-no-repeat bg-cover h-screen w-full">
+            <div className="  flex flex-row justify-center py-4">
+              <div className=" fixed top-0 right-0 pr-4 py-4">
                 <img
                   src="/images/closeIcon.svg"
                   className="h-5 hover:brightness-200"
@@ -70,8 +68,8 @@ export default function Header({ color = false, ...props }) {
           <></>
         </div>
       ) : (
-        <div className=" border  w-full bg-[#561515]  bg-opacity-95 md:bg-transparent z-50 py-2 md:py-12 px-0 md:px-20 tracking-wider font-desc2">
-          <Grid container className="items-center">
+        <div className=" border  mb-20  w-full bg-[#561515]  bg-opacity-95 z-50 py-2 px-0  md:py-12 md:px-20 md:bg-transparent tracking-wider font-desc2">
+          <Grid container className="border border-blue-500 m-6 flex justify-between  items-center">
             <Grid
               item
               lg={0}
@@ -81,7 +79,7 @@ export default function Header({ color = false, ...props }) {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               <div
-                className="pr-2 flex justify-center"
+                className="border pr-2 flex justify-center"
                 onClick={() => {
                   setPhoneMenuShow(!phoneMenuShow);
                 }}
@@ -91,16 +89,16 @@ export default function Header({ color = false, ...props }) {
             </Grid>
             <Grid item lg={2} md={2} sm={8} xs={8}>
               <div
-                className="cursor-pointer flex justify-center sm:justify-start md:-mt-28 text-white"
+                className=" border cursor-pointer flex justify-center sm:justify-start  text-white"
                 onClick={() => {
                   Router.push("/");
                 }}
               >
                 <img
                   src="/images/logo.png"
-                  className="hidden md:block w-[70px] md:w-[140px] h-[70px] md:h-[140px]"
+                  className="border hidden md:block w-[70px] md:w-[140px] h-[70px] md:h-[140px]"
                 />
-                <div className="md:hidden text-2xl ml-6 -mt-6">HOODYGANG</div>
+                <div className=" border  md:hidden text-2xl ml-6 -mt-6">HOODYGANG</div>
               </div>
             </Grid>
 
@@ -111,7 +109,7 @@ export default function Header({ color = false, ...props }) {
               md={10}
               sm={2}
               xs={2}
-              className="md:bg-[url('/images/landing/headerBG.png')] bg-no-repeat bg-cover text-black py-2 md:h-[223px]"
+              className="border md:bg-[url('/images/landing/vector.png')]   bg-no-repeat bg-cover text-black py-2 h-full w-full"
             >
               <Grid
                 item
@@ -121,7 +119,7 @@ export default function Header({ color = false, ...props }) {
                 xs={0}
                 sx={{ display: { xs: "none", md: "block" } }}
               >
-                <div className="flex flex-col items-center justify-around space-x-2 md:leading-[60px]">
+                <div className=" border border-black flex items-center justify-around space-x-2 md:leading-[60px]">
                   {navitem.map((items, itemIndex) => (
                     <div
                       className="cursor-pointer flex justify-center hover:underline"
@@ -133,7 +131,7 @@ export default function Header({ color = false, ...props }) {
                         }}
                         className="py-4"
                       >
-                        <div className="text-[16.67px] -mt-2.5">
+                        <div className=" border border-black  text-[16.67px] -mt-2.5">
                           {items?.label ?? ""}
                         </div>
                       </div>
@@ -149,7 +147,7 @@ export default function Header({ color = false, ...props }) {
                 xs={0}
                 sx={{ display: { xs: "none", md: "block" } }}
               >
-                <div className="flex justify-end mt-4">
+                <div className=" border border-black flex justify-end mt-4">
                   <Account />
                 </div>
               </Grid>
@@ -161,7 +159,7 @@ export default function Header({ color = false, ...props }) {
                 xs={12}
                 sx={{ display: { xs: "block", md: "none" } }}
               >
-                <div className="flex justify-center -mt-2">
+                <div className=" border border-black  flex justify-center -mt-2">
                   <Account />
                 </div>
               </Grid>
@@ -172,3 +170,128 @@ export default function Header({ color = false, ...props }) {
     </>
   );
 }
+
+// import { Menu, MenuItem } from "@mui/material";
+// import React, { useState } from "react";
+// import Router from "next/router";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import Account from "../Account";
+
+// export default function Header({ color = false, ...props }) {
+//   const [phoneMenuShow, setPhoneMenuShow] = useState(false);
+//   const toggleDrawer = (show) => () => {
+//     setPhoneMenuShow(show);
+//   };
+//   const navitem = [
+//     { to: "/main", label: "GO TO MAIN APP" },
+//     { to: "/whitepaper", label: "WHITE PAPER" },
+//   ];
+
+//   return (
+//     <>
+//       {phoneMenuShow === true ? (
+//         <div className="fixed top-0 w-full font-desc2">
+//           <div className="bg-[url('/images/main/mobileMenuBG.webp')] bg-no-repeat bg-cover h-screen w-full">
+//             <div className="flex flex-row justify-center py-4">
+//               <div className="fixed top-0 right-0 pr-4 py-4">
+//                 <img
+//                   src="/images/closeIcon.svg"
+//                   className="h-5 hover:brightness-200"
+//                   onClick={toggleDrawer(false)}
+//                 />
+//               </div>
+//             </div>
+//             <div className="pt-24">
+//               <div className="flex flex-col items-center text-center">
+//                 <div className="text-3xl text-white">HOODYGANG</div>
+//                 <img
+//                   src="/images/main/mobileTitleBottom.png"
+//                   className="mt-5 w-[240px]"
+//                 />
+//               </div>
+//               <div className="tracking-wider mt-12">
+//                 {navitem.map((items, itemIndex) => (
+//                   <div className="flex justify-center" key={itemIndex}>
+//                     <div
+//                       onClick={() => {
+//                         setPhoneMenuShow(!phoneMenuShow);
+//                         Router.push(items.to);
+//                       }}
+//                     >
+//                       <div
+//                         className={`text-xl text-white py-4 ${
+//                           itemIndex === 0 ? "py-8" : "py-4"
+//                         }`}
+//                       >
+//                         {items.label}
+//                       </div>
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       ) : (
+//         <div className="border mb-20 w-full flex items-center justify-between bg-[#561515] bg-opacity-95 z-50 py-2 px-0 md:py-4 md:px-16 md:bg-transparent tracking-wider font-desc2">
+//           <div className="m-6 flex justify-between items-center w-full">
+//             <div
+//               className="border pr-2 flex justify-center md:hidden"
+//               onClick={() => {
+//                 setPhoneMenuShow(!phoneMenuShow);
+//               }}
+//             >
+//               <MenuIcon style={{ color: "white" }} />
+//             </div>
+//             <div className="flex items-center">
+//               <div
+//                 className="border cursor-pointer flex justify-center sm:justify-start  text-white"
+//                 onClick={() => {
+//                   Router.push("/");
+//                 }}
+//               >
+//                 <img
+//                   src="/images/logo.png"
+//                   className="border hidden md:block w-[70px] md:w-[140px] h-[70px] md:h-[140px]"
+//                 />
+//                 <div className="border md:hidden text-2xl ml-6 -mt-6">
+//                   HOODYGANG
+//                 </div>
+//               </div>
+//             </div>
+
+// {/* navbar pages background */}
+
+//             <div className="flex items-center md:bg-[url('/images/landing/vector.png')] bg-no-repeat bg-cover text-black py-2  w-full">
+//               <div className="hidden md:flex items-center justify-around space-x-2 md:leading-[60px]">
+//                 {navitem.map((items, itemIndex) => (
+//                   <div
+//                     className="cursor-pointer flex justify-center hover:underline"
+//                     key={itemIndex}
+//                   >
+//                     <div
+//                       onClick={() => {
+//                         Router.push(items.to);
+//                       }}
+//                       className="py-4"
+//                     >
+//                       <div className="border border-black text-[16.67px] -mt-2.5">
+//                         {items.label}
+//                       </div>
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//               <div className="hidden md:flex justify-end mt-4">
+//                 <Account />
+//               </div>
+//               <div className="md:hidden flex justify-center -mt-2">
+//                 <Account />
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </>
+//   );
+// }

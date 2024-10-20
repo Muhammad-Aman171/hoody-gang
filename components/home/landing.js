@@ -15,13 +15,13 @@ export default function Landing() {
       <div>
         <div className="font-desc2">
           <Intro />  
-          <WelcomeHoody />
+          {/* <WelcomeHoody />
           <GetHoodyGang />
           <About />
           <OfferDescription />
           <ShareDescription />
           <AboutBelieve />
-          <Thankyou />
+          <Thankyou /> */}
           <ScrollToTop
             smooth
             component={<img src="/images/scrollToTop.png" />}
