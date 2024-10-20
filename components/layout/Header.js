@@ -68,8 +68,8 @@ export default function Header({ color = false, ...props }) {
           <></>
         </div>
       ) : (
-        <div className=" border  mb-20  w-full bg-[#561515]  bg-opacity-95 z-50 py-2 px-0  md:py-12 md:px-20 md:bg-transparent tracking-wider font-desc2">
-          <Grid container className="border border-blue-500 m-6 flex justify-between  items-center">
+        <div className=" border  mb-20  w-full bg-[#561515]  bg-opacity-95 z-50 p-12  md:bg-transparent tracking-wider font-desc2">
+          <Grid container className="border border-blue-500 m-6 flex justify-between  items-center w-full">
             <Grid
               item
               lg={0}

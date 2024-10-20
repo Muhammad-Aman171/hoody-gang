@@ -38,7 +38,7 @@ const Account = ({ main = false }) => {
                         } py-2 font-desc2`}
                       >
                         <div className="flex flex-row justify-center items-center space-x-4">
-                          <img src="/images/wallet.png" />
+                          <img src="/images/wallet.png" className="hidden sm:block" />
                           <div className="-mt-3">Connect Wallet</div>
                         </div>
                       </button>
