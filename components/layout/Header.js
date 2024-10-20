@@ -1,3 +1,7 @@
+
+// this is landing page  responsive design  code
+
+
 import { Grid, Menu, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 
@@ -18,7 +22,7 @@ export default function Header({ color = false, ...props }) {
   return (
     <>
       {phoneMenuShow == true ? (
-        <div className="fixed top-0 w-full font-desc2">
+        <div className=" border fixed top-0 w-full font-desc2">
           <div className="bg-[url('/images/main/mobileMenuBG.webp')] bg-no-repeat bg-cover h-screen w-full">
             <div className="flex flex-row justify-center py-4">
               <div className="fixed top-0 right-0 pr-4 py-4">
@@ -66,7 +70,7 @@ export default function Header({ color = false, ...props }) {
           <></>
         </div>
       ) : (
-        <div className=" border w-full bg-[#561515]  bg-opacity-95 md:bg-transparent z-50 py-2 md:py-12 px-0 md:px-20 tracking-wider font-desc2">
+        <div className=" border  w-full bg-[#561515]  bg-opacity-95 md:bg-transparent z-50 py-2 md:py-12 px-0 md:px-20 tracking-wider font-desc2">
           <Grid container className="items-center">
             <Grid
               item
@@ -117,7 +121,7 @@ export default function Header({ color = false, ...props }) {
                 xs={0}
                 sx={{ display: { xs: "none", md: "block" } }}
               >
-                <div className="flex flex-row items-center justify-around space-x-2 md:leading-[60px]">
+                <div className="flex flex-col items-center justify-around space-x-2 md:leading-[60px]">
                   {navitem.map((items, itemIndex) => (
                     <div
                       className="cursor-pointer flex justify-center hover:underline"
@@ -137,7 +141,6 @@ export default function Header({ color = false, ...props }) {
                   ))}
                 </div>
               </Grid>
-
               <Grid
                 item
                 lg={3}

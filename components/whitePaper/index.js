@@ -1,4 +1,5 @@
-import Image from "next/image";
+// this is white paper page code
+
 import React from "react";
 import ScrollToTop from "react-scroll-to-top";
 import Router from "next/router";

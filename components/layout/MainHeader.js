@@ -126,7 +126,7 @@ export default function MainHeader({ color = false, slug = "home", ...props }) {
                   src="/images/logo.png"
                   className="hidden md:block w-[70px] h-[70px]"
                 />
-                <div className="text-2xl -mt-6 ml-6 border">HOODYGANG</div>
+                <div className="text-2xl -mt-6 ml-6 ">HOODYGANG</div>
               </div>
             </Grid>
 
