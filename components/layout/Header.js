@@ -282,10 +282,10 @@ export default function Header({ color = false, ...props }) {
                   </div>
                 ))}
                 <div className="border border-black  hidden md:flex justify-center items-center ">
-                <Account />
+                  <Account />
+                </div>
               </div>
-              </div>
-              
+
               <div className="md:hidden flex justify-center mt-80">
                 <Account />
               </div>

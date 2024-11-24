@@ -32,14 +32,14 @@ const Account = ({ main = false }) => {
                       <button
                         onClick={openConnectModal}
                         className={`${
-                          main
-                            ? ""
-                            : "w-[242px] h-[52px] hover:underline"
+                          main ? "" : "w-[242px] h-[52px] hover:underline"
                         } py-2 font-desc2`}
                       >
                         <div className="flex flex-row justify-center items-center space-x-4">
                           <img src="/images/wallet.png" />
-                          <div className="text-center text-[16.67px] " >Connect Wallet</div>
+                          <div className="text-center text-[16.67px] ">
+                            Connect Wallet
+                          </div>
                         </div>
                       </button>
                     </div>
@@ -58,9 +58,7 @@ const Account = ({ main = false }) => {
                       <button
                         onClick={openChainModal}
                         className={`${
-                          main
-                            ? ""
-                            : "w-[242px] h-[52px] hover:underline"
+                          main ? "" : "w-[242px] h-[52px] hover:underline"
                         } py-2 font-desc2`}
                       >
                         <div className="flex flex-row justify-center items-center space-x-4">
@@ -83,9 +81,7 @@ const Account = ({ main = false }) => {
                     <button
                       onClick={openAccountModal}
                       className={`${
-                        main
-                          ? ""
-                          : "w-[242px] h-[52px] hover:underline"
+                        main ? "" : "w-[242px] h-[52px] hover:underline"
                       } py-2 font-desc2`}
                     >
                       <div className="flex flex-row justify-center items-center space-x-4">
