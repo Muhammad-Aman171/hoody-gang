@@ -1,19 +1,20 @@
 import "../styles/globals.scss";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
-  connectorsForWallets, getDefaultWallets, RainbowKitProvider, createAuthenticationAdapter,
+  connectorsForWallets,
+  getDefaultWallets,
+  RainbowKitProvider,
+  createAuthenticationAdapter,
   RainbowKitAuthenticationProvider,
 } from "@rainbow-me/rainbowkit";
-import {
-  trustWallet,
-} from '@rainbow-me/rainbowkit/wallets';
+import { trustWallet } from "@rainbow-me/rainbowkit/wallets";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import "@rainbow-me/rainbowkit/styles.css";
 
 import { baseSepolia } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import axios from "axios";
-import { SiweMessage } from 'siwe';
+import { SiweMessage } from "siwe";
 import { ToastContainer } from "react-toastify";
 
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
@@ -37,11 +38,9 @@ const connectors = connectorsForWallets([
   ...wallets,
   {
     groupName: "Other",
-    wallets: [
-      trustWallet({ projectId, chains })
-    ]
-  }
-])
+    wallets: [trustWallet({ projectId, chains })],
+  },
+]);
 
 const config = createConfig({
   autoConnect: true,
@@ -53,7 +52,7 @@ const config = createConfig({
 function MyApp({ Component, pageProps }) {
   const fetchingStatusRef = useRef(false);
   const verifyingRef = useRef(false);
-  const [authStatus, setAuthStatus] = useState('loading');
+  const [authStatus, setAuthStatus] = useState("loading");
 
   // Fetch user when:
   useEffect(() => {
@@ -65,10 +64,14 @@ function MyApp({ Component, pageProps }) {
       fetchingStatusRef.current = true;
 
       try {
-        const response = await axios.get(`${URLs.HoodyBackendAuthURL}/myInfo`, { withCredentials: true });
-        setAuthStatus(response.data.address ? 'authenticated' : 'unauthenticated');
+        const response = await axios.get(`${URLs.HoodyBackendAuthURL}/myInfo`, {
+          withCredentials: true,
+        });
+        setAuthStatus(
+          response.data.address ? "authenticated" : "unauthenticated"
+        );
       } catch (_error) {
-        setAuthStatus('unauthenticated');
+        setAuthStatus("unauthenticated");
       } finally {
         fetchingStatusRef.current = false;
       }
@@ -78,14 +81,18 @@ function MyApp({ Component, pageProps }) {
     fetchStatus();
 
     // 2. window is focused (in case user logs out of another window)
-    window.addEventListener('focus', fetchStatus);
-    return () => window.removeEventListener('focus', fetchStatus);
+    window.addEventListener("focus", fetchStatus);
+    return () => window.removeEventListener("focus", fetchStatus);
   }, []);
 
   const authAdapter = useMemo(() => {
     return createAuthenticationAdapter({
       getNonce: async () => {
-        const nonce = (await axios.get(`${URLs.HoodyBackendAuthURL}/getNonce`, { withCredentials: true })).data;
+        const nonce = (
+          await axios.get(`${URLs.HoodyBackendAuthURL}/getNonce`, {
+            withCredentials: true,
+          })
+        ).data;
         return await nonce;
       },
 
@@ -93,9 +100,9 @@ function MyApp({ Component, pageProps }) {
         return new SiweMessage({
           domain: window.location.host,
           address,
-          statement: 'Sign in with Ethereum to HoodyGang.',
+          statement: "Sign in with Ethereum to HoodyGang.",
           uri: window.location.origin,
-          version: '1',
+          version: "1",
           chainId,
           nonce,
         });
@@ -109,16 +116,21 @@ function MyApp({ Component, pageProps }) {
         verifyingRef.current = true;
 
         try {
-          const response = await axios.post(`${URLs.HoodyBackendAuthURL}/verify`, ({ message: message, signature: signature }), { withCredentials: true }, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+          const response = await axios.post(
+            `${URLs.HoodyBackendAuthURL}/verify`,
+            { message: message, signature: signature },
+            { withCredentials: true },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
 
           const authenticated = Boolean(response.data.ok);
 
           if (authenticated) {
-            setAuthStatus(authenticated ? 'authenticated' : 'unauthenticated');
+            setAuthStatus(authenticated ? "authenticated" : "unauthenticated");
           }
 
           return authenticated;
@@ -128,8 +140,10 @@ function MyApp({ Component, pageProps }) {
       },
 
       signOut: async () => {
-        setAuthStatus('unauthenticated');
-        await axios.get(`${URLs.HoodyBackendAuthURL}/logOut`, { withCredentials: true });
+        setAuthStatus("unauthenticated");
+        await axios.get(`${URLs.HoodyBackendAuthURL}/logOut`, {
+          withCredentials: true,
+        });
       },
     });
   }, []);
@@ -138,7 +152,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>HoodyGang</title>
-        <meta name="description" content="Hoodygang NFT is a collection that offers customizable digital artwork on the ethereum blockchain. Explore the world of Hoodygang and discover how this decentralized app (dApp) is revolutionizing the art industry." />
+        <meta
+          name="description"
+          content="Hoodygang NFT is a collection that offers customizable digital artwork on the ethereum blockchain. Explore the world of Hoodygang and discover how this decentralized app (dApp) is revolutionizing the art industry."
+        />
         <link rel="icon" href="/logo.svg" />
       </Head>
       <WagmiConfig config={config}>
@@ -164,7 +181,7 @@ function MyApp({ Component, pageProps }) {
         theme="colored"
       />
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
