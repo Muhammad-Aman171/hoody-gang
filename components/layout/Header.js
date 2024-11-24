@@ -275,7 +275,7 @@ export default function Header({ color = false, ...props }) {
                       }}
                       className="py-4 items-center"
                     >
-                      <div className="border border-black text-[16.67px] ">
+                      <div className="border border-black ">
                         {items.label}
                       </div>
                     </div>
